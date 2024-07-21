@@ -1,0 +1,71 @@
+
+{% extends 'Walkly/index.html' %}
+
+{% block titulo %}
+<h1 class="display-1 lh-1 mb-3">Stride and Ride for a Greener Tomorrow</h1>
+    <p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock titulo %} 
+
+
+{% block etapas %}
+
+                <table>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary btn-sm rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                                <span class="d-flex align-items-center">
+                                    <i class="bi-chat-text-fill me-2"></i>
+                                    <span class="small">Add new feature</span>
+                                        <a
+                                        href="{% url 'featuresCreate' %}"
+                                        class="btn btn-primary btn-sm"
+                                        ><i class="fa fa-plus fa-lg" title="Create"> </i>
+                                        </a>
+                                </span>
+                            </button>
+                        </td>        
+                    </tr>
+                </table>
+       <!-- App features section-->
+       <section id="features">
+                    <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8">
+                    <h2 class="text-center mt-0">Features</h2>
+                    <hr class="divider" />
+                    <p class="text-center mb-5">Explore the powerful features that make our product stand out!</p>
+                    </div>
+                    </div>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-md-6 mb-5 text-end">
+                                {% for f in features_list %}
+                                <!-- Feature item-->
+                                <div class="text-center">
+                                    <hr style="width: 10px; display: inline-block;">
+                                    <i class="bi {{ f.icon }} icon-feature text-gradient d-block mb-3"></i>
+                                    <h3 class="card-title text-end">{{ s.id }}</h5>
+                                    <h4 class="font-alt ">{{ f.title }}</h3>
+                                    <p class="text-muted mb-0">{{ f.description }}</p>
+                                    <th>Select</th>
+                                    <td>
+                                     <a        
+                                        href="{% url 'featuresUpdate' f.id %}"
+                                        class="btn btn-primary"
+                                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                    </a>
+                                        <a
+                                        href= "{% url 'featuresDelete' f.id %}"       
+                                        class="btn btn-danger"          
+                                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"           
+                                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>         
+                                    </a>                      
+                                    </td>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+
+
+{% endblock etapas %}

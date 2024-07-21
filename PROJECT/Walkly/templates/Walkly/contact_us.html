@@ -1,0 +1,37 @@
+{% extends 'Walkly/index.html' %}
+
+{% block title %}
+<h1 class="display-1 lh-1 mb-3">Stride and Ride for a Greener Tomorrow</h1>
+    <p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock title %} 
+
+
+{% block contenido %}
+
+<section id="contact_us" class="section bg-light">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-center mt-0">Contact Us</h2>
+                <hr class="divider" />
+                <p class="text-center mb-5">Contact us for further information using the details below:</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for c in contact_us %}
+            <div class="col-md-4 mb-5">
+                <div class="card review-card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title reviewer-name">{{ c.id }}</h4>
+                        <h5 class="card-title reviewer-name">{{ c.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted reviewer-role">{{ c.email }}</h6>
+                        <h4 class="card-subtitle mb-2 text-muted reviewer-role">{{ c.subject}}</h4>
+                        <p class="card-text review-text">{{ c.message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock contenido %}

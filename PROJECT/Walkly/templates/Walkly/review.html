@@ -1,0 +1,77 @@
+{% extends 'Walkly/index.html' %}
+
+{% block title %}
+<h1 class="display-1 lh-1 mb-3">Stride and Ride for a Greener Tomorrow</h1>
+    <p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock title %} 
+
+
+{% block perfil %}
+
+<table>
+    <tr>
+        <td>
+            <button class="btn btn-primary btn-sm rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                <span class="d-flex align-items-center">
+                    <i class="bi-chat-text-fill me-2"></i>
+                    <span class="small">Send Feedback</span>
+                        <a
+                        href="{% url 'reviewForm' %}"
+                        class="btn btn-primary btn-sm"
+                        ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+                        </a>
+                </span>
+            </button>
+        </td>        
+    </tr>
+</table>
+
+<section id="review" class="section bg-light">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-center mt-0">Review</h2>
+                <hr class="divider" />
+                <p class="text-center mb-5">See what our users are saying about us.</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for r in review %}
+            <div class="col-md-4 mb-5">
+                <div class="card review-card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title reviewer-name">{{ r.id }}</h5>
+                        <h5 class="card-title reviewer-name">{{ r.customer_name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted reviewer-role">{{ r.profession_name }}</h6>
+                        <p class="card-text review-text">{{ r.review_text }}</p>
+                        <th>Select</th>
+                        <td>
+                            <a        
+                              href="{% url 'reviewUpdate' r.id %}"
+                              class="btn btn-primary"
+                              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                            </a>
+                            <a
+                              href= "{% url 'reviewDelete' r.id %}"         
+                              class="btn btn-danger"          
+                              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"           
+                              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>         
+                            </a>                      
+                        </td>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock perfil %}

@@ -1,0 +1,16 @@
+{% extends 'Walkly/index.html' %}
+
+{% block titulo %}
+<h1 class="display-1 lh-1 mb-3">Stride and Ride for a Greener Tomorrow</h1>
+    <p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock titulo %} 
+
+
+{% block contenido %}
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline" action="{% url 'findsearch' %}" method="GET">
+        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+{% endblock contenido %}

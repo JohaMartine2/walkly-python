@@ -1,0 +1,77 @@
+{% extends 'Walkly/index.html' %}
+
+{% block title %}
+<h1 class="display-1 lh-1 mb-3">Formulario Review</h1>
+    <p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock title %} 
+
+
+{% block perfil  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Leave a Review</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div> 
+                {{ form }} 
+            </div>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+{% endblock perfil  %}

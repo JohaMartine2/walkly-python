@@ -1,0 +1,46 @@
+{% extends 'Walkly/index.html' %}
+
+{% block title %}
+<h1 class="display-1 lh-1 mb-3">Stride and Ride for a Greener Tomorrow</h1>
+<p class="lead fw-normal text-muted mb-5">Track your walks and rides. Measure your impact on the planet. Stay green and stay active!</p>
+{% endblock title %} 
+
+
+{% block subscription %}
+
+<section id="subscribe" class="section bg-light">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-center mt-0">Subscription</h2>
+                <hr class="divider" />
+                <p class="text-center mb-5">Choose the best plan that suits your needs. First month's on us.</p>
+            </div>
+        </div>
+        <div class="row gx-5">
+            {% for s in subscribe %}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ s.plan_name }}</h5>
+                        <h6 class="card-price text-center">${{ s.price }}</h6>
+                        <hr>
+                        <ul class="fa-ul">
+                            {% for feature in s.features_list %}
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    {{ feature }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock subscription %}
+
+
